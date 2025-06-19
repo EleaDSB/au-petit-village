@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-about',
@@ -110,7 +111,7 @@ import { RouterModule } from '@angular/router';
               <div class="grid grid-cols-1 md:grid-cols-1 gap-8 items-center">
                 <div>
                   <p class="text-lg leading-relaxed opacity-90">
-                    Nos figurines s'adressent aux <strong>collectionneurs et amateurs</strong> âgés de 30 à 55 ans, 
+                    Nos figurines s'adressent aux <strong>collectionneurs et amateurs</strong>, 
                     qui ont découvert Astérix et Obélix dans leur jeunesse et souhaitent aujourd'hui posséder 
                     des pièces de qualité représentant leurs héros d'enfance.
                   </p>
@@ -261,7 +262,9 @@ import { RouterModule } from '@angular/router';
 })
 export class AboutComponent {
 
-  constructor() {}
+  constructor(private productsService: ProductsService) {
+
+  }
 
   /**
    * Gestion des erreurs d'images

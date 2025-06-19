@@ -10,7 +10,7 @@ import { Router, RouterModule } from '@angular/router';
     RouterModule
   ],
   template: `
-    <header class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-yellow-200">
+    <header class="bg-white/65 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-red-500">
       <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between py-4">
           

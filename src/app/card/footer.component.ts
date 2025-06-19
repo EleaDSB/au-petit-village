@@ -81,7 +81,7 @@ import { RouterModule } from '@angular/router';
         <div class="border-t border-gray-700 mt-8 pt-8">
           <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
-            <!-- Newsletter -->
+            <!-- Newsletter
             <div class="text-center md:text-left">
               <h4 class="text-lg font-semibold title-font text-yellow-400 mb-2">
                 📧 Restez informé !
@@ -89,7 +89,7 @@ import { RouterModule } from '@angular/router';
               <p class="text-gray-300 text-sm">
                 Recevez nos actualités et nouveautés en avant-première
               </p>
-            </div>
+            </div> -->
 
             <!-- Réseaux sociaux -->
             <div class="flex items-center space-x-4">
