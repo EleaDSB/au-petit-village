@@ -41,7 +41,7 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
               (error)="onImageError($event)">
           </div>
           
-          <!-- Statistiques rapides -->
+         <!-- Statistiques rapides
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <div class="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
               <div class="text-3xl font-bold text-red-600 mb-2">{{ products.length }}</div>
@@ -57,16 +57,16 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- Section Filtres et Recherche -->
       <section class="py-8 px-4 bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-10">
         <div class="container mx-auto">
-          <div class="flex flex-col lg:flex-row gap-4 items-end justify-between">
+          <div class="flex flex-col lg:flex-row gap-4 items-center lg:items-end justify-center lg:justify-between">
             
             <!-- Recherche -->
-            <div class="flex-1 max-w-md">
-              <label for="search" class="block text-sm font-medium text-gray-700 mb-2">
+            <div class="w-full lg:flex-1 max-w-md mx-auto lg:mx-0">
+              <label for="search" class="block text-sm font-medium text-gray-700 mb-2 text-center lg:text-left">
                 🔍 Rechercher une figurine
               </label>
               <input
@@ -79,8 +79,8 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
             </div>
 
             <!-- Tri par prix -->
-            <div class="flex-1 max-w-md">
-              <label for="sort" class="block text-sm font-medium text-gray-700 mb-2">
+            <div class="w-full lg:flex-1 max-w-md mx-auto lg:mx-0">
+              <label for="sort" class="block text-sm font-medium text-gray-700 mb-2 text-center lg:text-left">
                 📊 Trier par prix
               </label>
               <select
@@ -95,7 +95,7 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
             </div>
 
             <!-- Bouton reset et compteur -->
-            <div class="flex flex-col items-center gap-2">
+            <div class="flex flex-col items-center gap-2 w-full lg:w-auto">
               <button 
                 (click)="resetFilters()"
                 class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg transition-colors duration-200 hover:shadow-md">
@@ -188,31 +188,6 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
             class="text-center py-16">
             <div class="animate-spin w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full mx-auto mb-4"></div>
             <p class="text-gray-600">Chargement des figurines...</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Call-to-Action -->
-      <section class="py-16 px-4 bg-gradient-to-r from-red-600 to-red-700 text-white">
-        <div class="container mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 title-font">
-            🎨 Figurines Artisanales d'Exception
-          </h2>
-          <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Chaque figurine est unique, sculptée à la main par nos artisans passionnés. 
-            Découvrez l'authenticité et la qualité de notre savoir-faire gaulois !
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              routerLink="/about"
-              class="bg-white text-red-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-              📖 Notre Histoire
-            </a>
-            <a 
-              href="mailto:contact@aupetitvillage.fr"
-              class="bg-yellow-400 text-gray-800 font-semibold py-3 px-8 rounded-lg hover:bg-yellow-500 transition-colors duration-200">
-              ✉️ Nous Contacter
-            </a>
           </div>
         </div>
       </section>
