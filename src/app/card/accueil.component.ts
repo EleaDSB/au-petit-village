@@ -33,11 +33,11 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
             des aventures des célèbres Gaulois qui ont marqué notre enfance.
           </p>
           
-          <div class="flex justify-center mb-8">
+          <div class="flex justify-center mb-8 rounded-lg">
             <img 
               src="assets/images/logo.png" 
               alt="Logo Au Petit Village" 
-              class="h-32 w-auto drop-shadow-lg"
+              class="h-32 w-auto drop-shadow-lg rounded-lg"
               (error)="onImageError($event)">
           </div>
           

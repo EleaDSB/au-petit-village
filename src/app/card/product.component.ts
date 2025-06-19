@@ -16,7 +16,7 @@ import { Product } from '../product.model';
       
       <!-- Navigation de retour -->
       <section class="py-4 px-4 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto">
+        <div class="container mx-auto flex justify-between items-center">
           <button 
             (click)="goBack()"
             class="flex items-center text-gray-600 hover:text-red-600 transition-colors duration-200">
@@ -25,6 +25,12 @@ import { Product } from '../product.model';
             </svg>
             Retour au catalogue
           </button>
+          
+          <a 
+            routerLink="/about"
+            class="text-gray-600 hover:text-red-600 transition-colors duration-200 font-medium">
+            📖 Notre Histoire
+          </a>
         </div>
       </section>
 
