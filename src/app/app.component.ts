@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
+    <div class="min-h-screen flex flex-col">
+      <router-outlet></router-outlet>
+    </div>
   `,
   styles: [],
 })
