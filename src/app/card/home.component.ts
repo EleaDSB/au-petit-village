@@ -8,7 +8,7 @@ import { FilterByNamePipe } from '../filter-by-name.pipe';
 import { SortByPricePipe } from '../sort-by-price.pipe';
 
 @Component({
-  selector: 'app-accueil',
+  selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
@@ -117,10 +117,10 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
           </h2>
           
           <!-- Grille des produits -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div 
               *ngFor="let product of products | filterByName:searchTerm | sortByPrice:sortDirection" 
-              class="product-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl border border-gray-100">
+              class="product-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl border border-gray-100 flex flex-col">
               
               <!-- Image du produit -->
               <div class="h-64 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center p-4 relative cursor-pointer"
@@ -139,23 +139,23 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
               </div>
               
               <!-- Contenu de la carte -->
-              <div class="p-6">
+              <div class="p-6 flex flex-col h-full">
                 <h3 class="text-xl font-bold text-gray-800 mb-3 title-font line-clamp-2">
                   {{ product.name }}
                 </h3>
                 
-                <p class="text-gray-600 mb-4 line-clamp-3 text-sm leading-relaxed">
+                <p class="text-gray-600 mb-4 text-sm leading-relaxed flex-grow">
                   {{ product.description }}
                 </p>
                 
-                <div class="flex items-center justify-between">
-                  <span class="text-2xl font-bold text-red-600">
-                    {{ product.price | currency:'EUR':'symbol':'1.2-2' }}
+                <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4 mt-auto">
+                  <span class="text-2xl font-bold text-red-600 xl:text-3xl">
+                    {{ product.price | currency:'EUR':'symbol':'1.2-2'}}
                   </span>
                   <button 
                     [disabled]="!product.inStock"
                     [ngClass]="product.inStock ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-800' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
-                    class="font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    class="font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-md xl:py-4 xl:px-8 xl:text-lg"
                     (click)="navigateToProduct(product.id)">
                     {{ product.inStock ? 'Voir détails →' : 'Indisponible' }}
                   </button>
@@ -327,7 +327,7 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
     }
   `]
 })
-export class AccueilComponent implements OnInit {
+export class HomeComponent implements OnInit {
   products: Product[] = [];
   searchTerm: string = '';
   sortDirection: string = '';
