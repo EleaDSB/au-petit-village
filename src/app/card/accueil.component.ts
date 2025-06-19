@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ProductsService } from '../products.service';
 import { Product } from '../product.model';
 import { FilterByNamePipe } from '../filter-by-name.pipe';
@@ -123,7 +123,8 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
               class="product-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl border border-gray-100">
               
               <!-- Image du produit -->
-              <div class="h-64 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center p-4 relative">
+              <div class="h-64 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center p-4 relative cursor-pointer"
+                   (click)="navigateToProduct(product.id)">
                 <img 
                   [src]="product.imageUrl" 
                   [alt]="product.name"
@@ -154,7 +155,8 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
                   <button 
                     [disabled]="!product.inStock"
                     [ngClass]="product.inStock ? 'bg-yellow-400 hover:bg-yellow-500 text-gray-800' : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
-                    class="font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-md">
+                    class="font-semibold py-2 px-4 rounded-lg transition-all duration-200 hover:shadow-md"
+                    (click)="navigateToProduct(product.id)">
                     {{ product.inStock ? 'Voir détails →' : 'Indisponible' }}
                   </button>
                 </div>
@@ -218,10 +220,6 @@ import { SortByPricePipe } from '../sort-by-price.pipe';
   `,
   styles: [`
     /* Styles spécifiques au composant accueil */
-    .title-font {
-      font-family: 'Comfortaa', sans-serif;
-      /* À remplacer par Bubbleboddy neue quand disponible */
-    }
 
     /* Animation de hover pour les cartes produits */
     .product-card {
@@ -359,7 +357,10 @@ export class AccueilComponent implements OnInit {
   searchTerm: string = '';
   sortDirection: string = '';
 
-  constructor(private productsService: ProductsService) { 
+  constructor(
+    private productsService: ProductsService,
+    private router: Router
+  ) { 
     // Service utilisé dans le constructeur comme requis par l'évaluation
   }
 
@@ -431,6 +432,13 @@ export class AccueilComponent implements OnInit {
    */
   onProductImageError(event: any): void {
     event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjRjlEMEEzIi8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzE1MTIxNyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RmlndXJpbmU8L3RleHQ+Cjx0ZXh0IHg9Ijk2IiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzE1MTIxNyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2U8L3RleHQ+Cjwvc3ZnPg==';
+  }
+
+  /**
+   * Navigation vers la page de détail du produit
+   */
+  navigateToProduct(productId: number): void {
+    this.router.navigate(['/product', productId]);
   }
 }
 
