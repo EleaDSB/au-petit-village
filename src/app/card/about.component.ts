@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -11,20 +11,6 @@ import { Router, RouterModule } from '@angular/router';
   ],
   template: `
     <div class="bg-gradient-to-br from-yellow-50 to-orange-50 min-h-screen">
-      
-      <!-- Navigation de retour -->
-      <section class="py-4 px-4 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto">
-          <button 
-            (click)="goBack()"
-            class="flex items-center text-gray-600 hover:text-red-600 transition-colors duration-200">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            Retour au catalogue
-          </button>
-        </div>
-      </section>
 
       <!-- Section Hero -->
       <section class="py-16 px-4">
@@ -171,32 +157,6 @@ import { Router, RouterModule } from '@angular/router';
               </div>
             </div>
 
-            <!-- Section Contact/CTA -->
-            <div class="text-center">
-              <div class="bg-yellow-100 rounded-2xl p-8 md:p-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 title-font">
-                  ✉️ Rejoignez l'Aventure !
-                </h2>
-                
-                <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-                  Découvrez notre collection complète et laissez-vous transporter dans l'univers magique 
-                  du petit village gaulois qui résiste encore et toujours à l'envahisseur !
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
-                    (click)="goToProducts()"
-                    class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-200">
-                    🏺 Voir nos Figurines
-                  </button>
-                  <a 
-                    href="mailto:contact@aupetitvillage.fr"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-bold py-3 px-8 rounded-lg transition-colors duration-200">
-                    📧 Nous Contacter
-                  </a>
-                </div>
-              </div>
-            </div>
 
           </div>
         </div>
@@ -301,21 +261,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class AboutComponent {
 
-  constructor(private router: Router) {}
-
-  /**
-   * Navigation de retour vers l'accueil
-   */
-  goBack(): void {
-    this.router.navigate(['/']);
-  }
-
-  /**
-   * Navigation vers la page des produits
-   */
-  goToProducts(): void {
-    this.router.navigate(['/']);
-  }
+  constructor() {}
 
   /**
    * Gestion des erreurs d'images

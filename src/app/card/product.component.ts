@@ -13,26 +13,6 @@ import { Product } from '../product.model';
   ],
   template: `
     <div class="bg-gradient-to-br from-yellow-50 to-orange-50 min-h-screen">
-      
-      <!-- Navigation de retour -->
-      <section class="py-4 px-4 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto flex justify-between items-center">
-          <button 
-            (click)="goBack()"
-            class="flex items-center text-gray-600 hover:text-red-600 transition-colors duration-200">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            Retour au catalogue
-          </button>
-          
-          <a 
-            routerLink="/about"
-            class="text-gray-600 hover:text-red-600 transition-colors duration-200 font-medium">
-            📖 Notre Histoire
-          </a>
-        </div>
-      </section>
 
       <!-- Loading State -->
       <div *ngIf="loading" class="flex justify-center items-center py-32">
@@ -48,11 +28,11 @@ import { Product } from '../product.model';
           </svg>
           <h2 class="text-3xl font-bold text-gray-600 mb-4 title-font">Figurine introuvable</h2>
           <p class="text-gray-500 mb-8">La figurine que vous recherchez n'existe pas ou n'est plus disponible.</p>
-          <button 
-            (click)="goBack()"
+          <a 
+            routerLink="/"
             class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
             Retour au catalogue
-          </button>
+          </a>
         </div>
       </div>
 
@@ -292,13 +272,6 @@ export class ProductComponent implements OnInit {
         this.loading = false;
       }
     });
-  }
-
-  /**
-   * Navigation de retour
-   */
-  goBack(): void {
-    this.router.navigate(['/']);
   }
 
   /**
