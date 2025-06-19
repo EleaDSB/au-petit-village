@@ -2,4 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+/* Chargement de la police Bubbleboddy neue */
+@font-face {
+  font-family: 'Bubbleboddy neue';
+  src: url('./assets/font/bubbleboddy_neue/BubbleboddyNeue-Thin Trial.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bubbleboddy neue';
+  src: url('./assets/font/bubbleboddy_neue/BubbleboddyNeue-Light Trial.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bubbleboddy neue';
+  src: url('./assets/font/bubbleboddy_neue/bubbleboddyneue-regular trial.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bubbleboddy neue';
+  src: url('./assets/font/bubbleboddy_neue/BubbleboddyNeue-Bold Trial.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bubbleboddy neue';
+  src: url('./assets/font/bubbleboddy_neue/BubbleboddyNeue-ExtraBold Trial.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Configuration des polices globales */
+@layer base {
+  /* Police de base pour le texte courant */
+  body {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 400;
+  }
+  
+  /* Police pour les titres - Bubbleboddy neue (fallback sur Comfortaa) */
+  .title-font {
+    font-family: 'Bubbleboddy neue', 'Comfortaa', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* Styles pour les différents niveaux de titres */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bubbleboddy neue', 'Comfortaa', sans-serif;
+    font-weight: 700;
+  }
+}
